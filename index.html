@@ -2,685 +2,479 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Çiftçi Auto Göçük | Boyasız Göçük Onarım Merkezi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çiftçi Oto Göçük | Mustafa Usta - Profesyonel PDR ve Kaporta</title>
     <style>
-        /* --- GENEL TEMEL AYARLAR --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-            scroll-behavior: smooth;
+        :root {
+            --primary-red: #ff0000;
+            --dark-red: #cc0000;
+            --hover-red: #ff3333;
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
         }
 
-        body {
-            background: radial-gradient(circle at 50% 20%, #1f0406 0%, #0b0203 40%, #000000 100%);
-            background-attachment: fixed;
-            color: #ffffff;
-            overflow-x: hidden;
-            width: 100%;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color); 
+            color: #f1f1f1; 
+            line-height: 1.5;
         }
-
-        /* --- SABİT ÜST BAR (NAVBAR) --- */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #0a0203;
-            border-bottom: 2px solid #e30613;
-            z-index: 999999 !important;
-            padding: 10px 12px;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        header { 
+            background: linear-gradient(135deg, #1a0000, #000000); 
+            padding: 15px 20px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            gap: 5px;
+            border-bottom: 3px solid var(--primary-red); 
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+            gap: 10px;
         }
-
-        .brand-area {
+        .header-left {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
         }
-
-        .brand-logo {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--primary-red);
         }
-
-        .brand-name {
-            font-size: 13px;
-            font-weight: 900;
-            text-transform: uppercase;
+        .header-title h1 {
+            font-size: 16px;
             letter-spacing: 0.5px;
             color: #ffffff;
-            line-height: 1.1;
-        }
-
-        .brand-name span {
-            color: #e30613;
-            display: block;
-            font-size: 10px;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-booking-btn {
-            background-color: #e30613;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 8px 12px;
-            border-radius: 6px;
-            border: 1px solid #ffffff;
-            transition: transform 0.2s;
-            white-space: nowrap;
-        }
-
-        .nav-booking-btn:active {
-            transform: scale(0.95);
-        }
-
-        .header-phone {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 11px;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 8px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        /* --- SABİT SAĞ ALT WHATSAPP BUTONU --- */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 56px;
-            height: 56px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            z-index: 99999 !important;
-            text-decoration: none;
-        }
-
-        /* --- KAPAK AFİŞ ALANI (HERO) --- */
-        .hero-section {
-            margin-top: 75px;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-banner-wrapper {
-            max-width: 1100px;
-            width: 100%;
-            border: 1px solid rgba(227, 6, 19, 0.3);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- PREMIUM BAŞLIKLAR --- */
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 45px 0 25px 0;
-            padding: 0 15px;
-            clear: both;
-        }
-
-        .section-title span {
-            color: #e30613;
-            position: relative;
-        }
-
-        /* --- HAKKIMIZDA BÖLÜMÜ --- */
-        .about-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px 15px 20px 15px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        @media (min-width: 768px) {
-            .about-section {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .about-content {
-            background: rgba(20, 10, 11, 0.5);
-            border: 1px solid rgba(227, 6, 19, 0.1);
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .about-content h3 {
-            font-size: 18px;
-            color: #e30613;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .about-content p {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #cccccc;
-            margin-bottom: 10px;
-        }
-
-        .about-features {
-            list-style: none;
-            margin-top: 12px;
-        }
-
-        .about-features li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
+        .header-title .subtitle {
+            color: var(--hover-red);
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .about-features li i {
-            color: #e30613;
-        }
-
-        .about-image-card {
-            border: 1px solid rgba(227, 6, 19, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .about-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- PREMIUM VİDEOLARIMIZ --- */
-        .video-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .video-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .video-card {
-            background: linear-gradient(135deg, #150305 0%, #050001 100%);
-            border: 1px solid rgba(227, 6, 19, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .video-card i {
-            font-size: 35px;
-            color: #e30613;
-        }
-
-        .video-card h3 {
-            font-size: 16px;
-            font-weight: 700;
             text-transform: uppercase;
         }
-
-        .video-btn {
-            background-color: #e30613;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
+        .header-right { 
+            display: flex; 
+            gap: 8px; 
+        }
+        .btn { 
+            padding: 8px 14px; 
+            text-decoration: none; 
+            color: white; 
+            border-radius: 8px; 
+            font-weight: bold; 
             font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 20px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            white-space: nowrap;
         }
-
-        /* --- ÖNCESİ / SONRASI 5 ADET KUSURSUZ GALERİ KUTUSU --- */
-        .gallery-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+        .btn-red { 
+            background: var(--primary-red); 
+            border-color: var(--hover-red);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5);
+        }
+        .btn-black { 
+            background: #1a1a1a; 
+            border-color: #333;
+        }
+        .btn:hover { 
+            transform: translateY(-2px); 
+            opacity: 0.95;
+        }
+        .social-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            background: #111;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        section { 
+            padding: 25px 15px; 
+            max-width: 800px; 
+            margin: 15px auto; 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            border: 1px solid #222;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        h2 { 
+            color: var(--hover-red); 
+            margin-bottom: 12px; 
+            font-size: 18px;
+            border-left: 5px solid var(--primary-red);
+            padding-left: 8px;
+            text-align: left;
+        }
+        p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .service-list { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+            gap: 10px; 
+            margin-top: 12px;
+        }
+        .service-item { 
+            background: linear-gradient(145deg, #1a1a1a, #111); 
+            padding: 14px; 
+            border-radius: 8px; 
+            text-align: center; 
+            border: 1px solid #2a2a2a;
+            font-weight: 600;
+            font-size: 13px;
+            color: #fff;
+        }
+        
+        /* 2'li yan yana grid yapısı */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+            margin-top: 12px;
         }
-
-        @media (min-width: 768px) {
-            .gallery-container {
-                grid-template-columns: 1fr 1fr;
+        @media (min-width: 550px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        .gallery-item {
-            background: rgba(20, 10, 11, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            overflow: hidden;
-            padding: 6px;
-        }
-
-        .compare-slider {
+        /* İNTERAKTİF ÖNCESİ / SONRASI KAYDIRMALI ÇUBUK (SLIDER) STİLLERİ */
+        .img-comparision {
             position: relative;
             width: 100%;
-            min-height: 380px; 
-            background-color: #0d0506;
+            height: 200px;
             border-radius: 8px;
             overflow: hidden;
+            border: 1px solid #333;
+            user-select: none;
         }
-
-        .compare-img {
+        .img-comparision img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
             pointer-events: none;
         }
-
-        .img-before {
+        .img-after {
             z-index: 1;
         }
-
-        .img-after {
+        .img-before {
             z-index: 2;
-            clip-path: inset(0 0 0 50%);
+            width: 50%;
+            overflow: hidden;
+            border-right: 3px solid var(--primary-red);
         }
-
-        .slider-handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 3px;
+        .img-before img {
+            width: 100%;
+            max-width: none;
             height: 100%;
-            background-color: #ffffff;
-            z-index: 3;
-            cursor: ew-resize;
-            transform: translateX(-50%);
-            box-shadow: 0 0 10px #e30613;
+            object-fit: cover;
         }
-
-        .slider-button {
+        .slider-range {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 36px;
-            height: 36px;
-            background-color: #e30613;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-size: 11px;
-        }
-
-        .badge {
-            position: absolute;
-            bottom: 12px;
-            padding: 4px 8px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 4px;
-            z-index: 4;
-        }
-
-        .badge-before { left: 12px; background: rgba(0, 0, 0, 0.75); }
-        .badge-after { right: 12px; background: rgba(227, 6, 19, 0.85); }
-
-        /* --- REZERVASYON FORMU ALANI --- */
-        .booking-section {
+            -webkit-appearance: none;
+            appearance: none;
             width: 100%;
-            display: block !important;
-            clear: both !important;
-            margin-top: 60px;
-            padding-bottom: 120px;
-        }
-
-        .booking-wrapper {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 0 15px;
-            width: 100%;
-        }
-
-        .booking-card {
-            background-color: #ffffff;
-            color: #1a1a1a;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            width: 100%;
-            display: block !important;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-            text-align: left;
-            width: 100%;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            color: #2c3e50;
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            font-size: 14px;
-            font-weight: 500;
-            border: 2px solid #dcdde1;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-            color: #1a1a1a;
+            height: 100%;
+            background: transparent;
             outline: none;
+            z-index: 10;
+            margin: 0;
+            cursor: ew-resize;
+        }
+        .slider-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 100%;
+            background: var(--primary-red);
+            cursor: ew-resize;
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+        }
+        .label-badge-before, .label-badge-after {
+            position: absolute;
+            bottom: 8px;
+            padding: 3px 7px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 4px;
+            z-index: 5;
+        }
+        .label-badge-before { left: 8px; background: var(--primary-red); color: #fff; }
+        .label-badge-after { right: 8px; background: rgba(0, 0, 0, 0.85); color: #ffcc00; }
+
+        .brosur-img {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--primary-red);
+            margin: 0 auto;
             display: block;
         }
-
-        .form-group textarea {
-            resize: none;
-            height: 90px;
-        }
-
-        .form-group input:focus, 
-        .form-group textarea:focus {
-            border-color: #e30613;
-            background-color: #ffffff;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background-color: #111111;
-            color: #ffffff;
-            border: none;
-            padding: 15px;
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
+        .rating-badge {
+            background: linear-gradient(135deg, #1f1f1f, #111);
+            border: 1px solid var(--primary-red);
+            padding: 12px;
             border-radius: 8px;
-            cursor: pointer;
+            margin-top: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffcc00;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+        }
+        .rating-badge span {
+            color: #fff;
+            font-size: 13px;
+            font-weight: normal;
+            display: block;
+            margin-top: 3px;
+        }
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .form-group label {
+            color: #aaa;
+            margin-bottom: 3px;
+            font-size: 12px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 9px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        .personal-photos {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
-
-        /* --- ALT BİLGİ (FOOTER) --- */
-        footer {
-            background-color: #030001;
-            padding: 35px 15px;
-            text-align: center;
-            border-top: 1px solid rgba(227, 6, 19, 0.1);
-            font-size: 11px;
-            color: #777777;
-            width: 100%;
-            clear: both;
+        .personal-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-red);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
         }
-
-        .footer-mail {
-            color: #e30613;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 6px;
-            font-size: 13px;
-        }
-
-        .footer-logo {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-bottom: 12px;
+        footer { 
+            text-align: center; 
+            padding: 20px; 
+            background: #000; 
+            color: #777; 
+            font-size: 12px;
+            border-top: 1px solid #1a1a1a;
         }
     </style>
+    <script>
+        function sendBooking(event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let service = document.getElementById('service').value;
+            let note = document.getElementById('note').value;
+            
+            let message = `Merhaba, randevu almak istiyorum.%0A*Ad Soyad:* ${name}%0A*Telefon:* ${phone}%0A*Hizmet:* ${service}%0A*Not:* ${note}`;
+            let whatsappUrl = `https://wa.me/905456806319?text=${message}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function slideCompare(slider, elementId) {
+            const beforeDiv = document.getElementById('before-' + elementId);
+            const sliderPos = slider.value;
+            beforeDiv.style.width = sliderPos + '%';
+        }
+    </script>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="brand-area">
-                <img src="logo.png" alt="Çiftçi Auto Logo" class="brand-logo">
-                <h1 class="brand-name">Çiftçi Auto <span>Göçük</span></h1>
-            </div>
-            
-            <div class="header-actions">
-                <a href="#randevu" class="nav-booking-btn">Rezervasyon Yap</a>
-                <a href="tel:05456806319" class="header-phone">
-                    <i class="fa-solid fa-phone"></i>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <a href="https://wa.me/905456806319" class="floating-whatsapp" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <section class="hero-section">
-        <div class="hero-banner-wrapper">
-            <img src="afis-ust.jpg" alt="Çiftçi Auto Üst Afiş" class="hero-banner">
-        </div>
-    </section>
-
-    <h2 class="section-title">Biz <span>Kimiz?</span></h2>
-    <section class="about-section">
-        <div class="about-content">
-            <h3>5 Yıllık Kusursuz İşçilik Tecrübesi</h3>
-            <p>Çiftçi Auto Göçük olarak, otomotiv sektöründe tam 5 yıldır boyasız göçük onarımı (PDR) alanında profesyonel hizmet sunuyoruz. Aracınızın orijinalliğine en ufak bir zarar vermeden, fabrika çıkış çizgilerini koruyarak ilk günkü haline getiriyoruz.</p>
-            <ul class="about-features">
-                <li><i class="fa-solid fa-circle-check"></i> %100 Orijinallik Koruma (Değer Kaybı Yok)</li>
-                <li><i class="fa-solid fa-circle-check"></i> 5 Yıllık Profesyonel PDR Tecrübesi</li>
-            </ul>
-        </div>
-        <div class="about-image-card">
-            <img src="afis-alt.jpg" alt="Mustafa Usta Çiftçi Auto" class="about-image">
-        </div>
-    </section>
-
-    <h2 class="section-title">Premium <span>Videolarımız</span></h2>
-    <section class="video-container">
-        <div class="video-card">
-            <i class="fa-brands fa-instagram"></i>
-            <h3>Kia K5 Onarımı</h3>
-            <a href="https://www.instagram.com/reel/DZszIZWxfkp/?igsh=b21keTk5bTRpYnVz" target="_blank" class="video-btn">İzle <i class="fa-solid fa-play"></i></a>
-        </div>
-        <div class="video-card">
-            <i class="fa-brands fa-instagram"></i>
-            <h3>Chevrolet Tahoe Onarımı</h3>
-            <a href="https://www.instagram.com/reel/DZsyWW7Riw4/?igsh=MW4wYXluMDIwYnIzdQ==" target="_blank" class="video-btn">İzle <i class="fa-solid fa-play"></i></a>
-        </div>
-    </section>
-
-    <h2 class="section-title">Premium Onarım <span>Galeri</span></h2>
-    <div class="gallery-container">
-        <div class="gallery-item">
-            <div class="compare-slider">
-                <img src="is1-before.jpg" alt="Önce" class="compare-img img-before">
-                <img src="is1-after.jpg" alt="Sonra" class="compare-img img-after">
-                <span class="badge badge-before">Before</span>
-                <span class="badge badge-after">After</span>
-                <div class="slider-handle"><div class="slider-button"><i class="fa-solid fa-arrows-left-right"></i></div></div>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="compare-slider">
-                <img src="is2-before.jpg" alt="Önce" class="compare-img img-before">
-                <img src="is2-after.jpg" alt="Sonra" class="compare-img img-after">
-                <span class="badge badge-before">Before</span>
-                <span class="badge badge-after">After</span>
-                <div class="slider-handle"><div class="slider-button"><i class="fa-solid fa-arrows-left-right"></i></div></div>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="compare-slider">
-                <img src="is3-before.jpg" alt="Önce" class="compare-img img-before">
-                <img src="is3-after.jpg" alt="Sonra" class="compare-img img-after">
-                <span class="badge badge-before">Before</span>
-                <span class="badge badge-after">After</span>
-                <div class="slider-handle"><div class="slider-button"><i class="fa-solid fa-arrows-left-right"></i></div></div>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="compare-slider">
-                <img src="is4-before.jpg" alt="Önce" class="compare-img img-before">
-                <img src="is4-after.jpg" alt="Sonra" class="compare-img img-after">
-                <span class="badge badge-before">Before</span>
-                <span class="badge badge-after">After</span>
-                <div class="slider-handle"><div class="slider-button"><i class="fa-solid fa-arrows-left-right"></i></div></div>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="compare-slider">
-                <img src="is5-before.jpg" alt="Önce" class="compare-img img-before">
-                <img src="is5-after.jpg" alt="Sonra" class="compare-img img-after">
-                <span class="badge badge-before">Before</span>
-                <span class="badge badge-after">After</span>
-                <div class="slider-handle"><div class="slider-button"><i class="fa-solid fa-arrows-left-right"></i></div></div>
-            </div>
+<!-- ÜST KISIM -->
+<header>
+    <div class="header-left">
+        <img src="ciftci-auto-logo.png" alt="Logo" class="logo-img">
+        <div class="header-title">
+            <h1>ÇİFTÇİ OTO GÖÇÜK</h1>
+            <div class="subtitle">Mustafa Usta</div>
         </div>
     </div>
+    <div class="header-right">
+        <a href="https://wa.me/905456806319" class="btn btn-black">💬 WhatsApp</a>
+        <a href="tel:05456806319" class="btn btn-red">📞 Ara</a>
+    </div>
+</header>
 
-    <section class="booking-section" id="randevu">
-        <h2 class="section-title">Müşteri <span>Rezervasyon</span></h2>
-        <div class="booking-wrapper">
-            <div class="booking-card">
-                <form id="whatsappForm">
-                    <div class="form-group">
-                        <label>Müşteri Adı Soyadı</label>
-                        <input type="text" id="fullname" placeholder="Ahmet Yılmaz" required>
-                    </div>
-                    <div class="form-group">
-                        <label>İletişim Hattı</label>
-                        <input type="tel" id="phone" placeholder="05..." required>
-                    </div>
-                    <div class="form-group">
-                        <label>Araç Segment / Model</label>
-                        <input type="text" id="carModel" placeholder="Örn: Fiat Egea 2022" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Randevu Tarihi</label>
-                        <input type="date" id="bookingDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Hasar Teşhis / Açıklama</label>
-                        <textarea id="message" placeholder="Hasarlı bölgenin durumu hakkında kısa bilgi veriniz..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn"<button type="submit" class="submit-btn">
-    <i class="fa-brands fa-whatsapp"></i>
-    REZERVASYON YAP
-</button>
-</form>
+<!-- SOSYAL MEDYA BUTONLARI -->
+<div class="social-bar">
+    <a href="https://www.instagram.com/ciftciautogocuk/" target="_blank" class="btn btn-black" style="border-color: var(--primary-red);">📸 Instagram</a>
+    <a href="https://www.tiktok.com/@ciftciautopdr?_r=1&_t=ZS-992Q65lbkZw" target="_blank" class="btn btn-black" style="border-color: var(--primary-red);">🎵 TikTok</a>
 </div>
-</div>
+
+<!-- BİZ KİMİZ / HAKKIMIZDA -->
+<section id="hakkimizda">
+    <h2>Biz Kimiz? & Vizyonumuz</h2>
+    <p>Otomobiliniz, sizin için sadece bir ulaşım aracı değil; değer verdiğiniz bir tutku ve prestij meselesidir. <strong>Çiftçi Oto Göçük</strong> olarak, Mustafa Usta liderliğinde Şanlıurfa'da kaporta disiplinini sanatla buluşturuyoruz. Fabrikasyon boya orijinalliğini %100 koruyarak, aracınızın değerine değer katıyor; en zorlu park ve dolu hasarlarını kusursuz bir el işçiliğiyle ortadan kaldırıyoruz.</p>
 </section>
-<script>
-document.getElementById("whatsappForm").addEventListener("submit", function(e) {
-    e.preventDefault();
 
-    const fullname = document.getElementById("fullname").value;
-    const phone = document.getElementById("phone").value;
-    const carModel = document.getElementById("carModel").value;
-    const bookingDate = document.getElementById("bookingDate").value;
-    const message = document.getElementById("message").value;
+<!-- BİLGİ AFİŞİ -->
+<section id="afis" style="padding: 15px;">
+    <img src="ciftci-auto-gocuk-brosur.jpg" alt="Çiftçi Oto Göçük Afiş" class="brosur-img">
+</section>
 
-    const whatsappMessage =
-`🚗 ÇİFTÇİ AUTO GÖÇÜK - YENİ REZERVASYON
+<!-- HİZMETLERİMİZ -->
+<section id="hizmetler">
+    <h2>Uzmanlık Alanlarımız & Hizmetler</h2>
+    <div class="service-list">
+        <div class="service-item">🛠️ Boyasız Göçük Onarımı</div>
+        <div class="service-item">🚗 Kaporta Boya Onarımı</div>
+        <div class="service-item">✨ Pasta Cila Hizmeti</div>
+        <div class="service-item">⚙️ Sökme Takma Değiştirme</div>
+    </div>
+</section>
 
-👤 Ad Soyad: ${fullname}
+<!-- ÖNCESİ SONRASI KAYDIRMALI FOTOĞRAFLAR (6 ADET) -->
+<section id="oncesi-sonrasi">
+    <h2>Öncesi & Sonrası Uygulamalarımız</h2>
+    <p style="margin-bottom: 12px;">Çizgiyi sağa sola kaydırarak onarım kalitemizi inceleyebilirsiniz:</p>
+    
+    <div class="gallery-grid">
+        
+        <!-- Fotoğraf 1: Clio -->
+        <div class="img-comparision">
+            <span class="label-badge-before">ÖNCESİ</span>
+            <span class="label-badge-after">SONRASI</span>
+            <div class="img-before" id="before-1"><img src="clio-tavan-diregi-gocuk-oncesi.jpg" alt="Öncesi"></div>
+            <div class="img-after"><img src="clio-tavan-diregi-gocuk-sonrasi.jpg" alt="Sonrası"></div>
+            <input type="range" min="0" max="100" value="50" class="slider-range" oninput="slideCompare(this, '1')">
+        </div>
 
-📞 Telefon: ${phone}
+        <!-- Fotoğraf 2: Fluence -->
+        <div class="img-comparision">
+            <span class="label-badge-before">ÖNCESİ</span>
+            <span class="label-badge-after">SONRASI</span>
+            <div class="img-before" id="before-2"><img src="fluence-bagaj-gocuk-oncesi.jpg" alt="Öncesi"></div>
+            <div class="img-after"><img src="fluence-bagaj-gocuk-sonrasi.jpg" alt="Sonrası"></div>
+            <input type="range" min="0" max="100" value="50" class="slider-range" oninput="slideCompare(this, '2')">
+        </div>
 
-🚘 Araç Modeli: ${carModel}
+        <!-- Fotoğraf 3: Honda CRV -->
+        <div class="img-comparision">
+            <span class="label-badge-before">ÖNCESİ</span>
+            <span class="label-badge-after">SONRASI</span>
+            <div class="img-before" id="before-3"><img src="honda-crv-arka-camurluk-gocuk-oncesi.jpg" alt="Öncesi"></div>
+            <div class="img-after"><img src="honda-crv-arka-camurluk-gocuk-sonrasi.jpg" alt="Sonrası"></div>
+            <input type="range" min="0" max="100" value="50" class="slider-range" oninput="slideCompare(this, '3')">
+        </div>
 
-📅 Randevu Tarihi: ${bookingDate}
+        <!-- Fotoğraf 4: Hyundai -->
+        <div class="img-comparision">
+            <span class="label-badge-before">ÖNCESİ</span>
+            <span class="label-badge-after">SONRASI</span>
+            <div class="img-before" id="before-4"><img src="hyundai-bagaj-gocuk-oncesi.jpg" alt="Öncesi"></div>
+            <div class="img-after"><img src="hyundai-bagaj-gocuk-sonrasi.jpg" alt="Sonrası"></div>
+            <input type="range" min="0" max="100" value="50" class="slider-range" oninput="slideCompare(this, '4')">
+        </div>
 
-📝 Hasar Açıklaması:
-${message}`;
+        <!-- Fotoğraf 5: Kia Sportage -->
+        <div class="img-comparision">
+            <span class="label-badge-before">ÖNCESİ</span>
+            <span class="label-badge-after">SONRASI</span>
+            <div class="img-before" id="before-5"><img src="kia-sportage-gocuk-oncesi.jpg" alt="Öncesi"></div>
+            <div class="img-after"><img src="kia-sportage-gocuk-sonrasi.jpg" alt="Sonrası"></div>
+            <input type="range" min="0" max="100" value="50" class="slider-range" oninput="slideCompare(this, '5')">
+        </div>
 
-    const whatsappURL =
-    "https://wa.me/905456806319?text=" +
-    encodeURIComponent(whatsappMessage);
+        <!-- Fotoğraf 6: Seat -->
+        <div class="img-comparision">
+            <span class="label-badge-before">ÖNCESİ</span>
+            <span class="label-badge-after">SONRASI</span>
+            <div class="img-before" id="before-6"><img src="seat-gocuk-oncesi.jpg" alt="Öncesi"></div>
+            <div class="img-after"><img src="seat-gocuk-sonrasi.jpg" alt="Sonrası"></div>
+            <input type="range" min="0" max="100" value="50" class="slider-range" oninput="slideCompare(this, '6')">
+        </div>
 
-    window.open(whatsappURL, "_blank");
-});
-</script>
+    </div>
+    
+    <!-- Müşteri Memnuniyeti Yıldız Rozeti -->
+    <div class="rating-badge">
+        ⭐⭐⭐⭐⭐ 5.0 / 5.0 Puan
+        <span>+99 Mutlu Müşteri ve Kusursuz PDR Deneyimi</span>
+    </div>
+</section>
+
+<!-- İLETİŞİM & KONUM -->
+<section id="iletisim">
+    <h2>İletişim ve Konum</h2>
+    <p><strong>Adres:</strong> Kadıkendi, Evren 8. Sk. 5-9, 63000 Eyyübiye / Şanlıurfa</p>
+    <div style="margin-top: 12px; text-align: center;">
+        <a href="https://maps.app.goo.gl/ERWhWvrc3v4GppKy5" target="_blank" class="btn btn-red" style="display: inline-flex; padding: 10px 18px;">📍 Navigasyon ile Yol Tarifi Al</a>
+    </div>
+    <p style="margin-top: 12px;"><strong>E-posta:</strong> ciftciautogocuk@gmail.com</p>
+</section>
+
+<!-- EN ALTA: RANDEVU BÖLÜMÜ VE KİŞİSEL FOTOĞRAFLAR -->
+<section id="rezervasyon">
+    <h2>Hızlı Randevu Oluştur</h2>
+    <p>Aracınız için hemen randevu talebi oluşturun, doğrudan WhatsApp üzerinden sizinle iletişime geçelim.</p>
+    <form class="booking-form" onsubmit="sendBooking(event)">
+        <div class="form-group">
+            <label for="name">Adınız Soyadınız</label>
+            <input type="text" id="name" required placeholder="Adınız Soyadınız">
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefon Numaranız</label>
+            <input type="tel" id="phone" required placeholder="05XXXXXXXXX">
+        </div>
+        <div class="form-group">
+            <label for="service">Almak İstediğiniz Hizmet</label>
+            <select id="service">
+                <option value="Boyasız Göçük Onarımı">Boyasız Göçük Onarımı (PDR)</option>
+                <option value="Kaporta Boya Onarımı">Kaporta Boya Onarımı</option>
+                <option value="Pasta Cila Hizmeti">Pasta Cila Hizmeti</option>
+                <option value="Sökme Takma Değiştirme">Sökme Takma Değiştirme</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="note">Araç / Hasar Durumu Notu</label>
+            <textarea id="note" rows="2" placeholder="Aracınızın markası ve hasarı hakkında kısa bilgi yazabilirsiniz..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-red" style="justify-content: center; width: 100%; margin-top: 8px; padding: 12px; font-size: 14px;">📅 Randevu Talebini WhatsApp ile Gönder</button>
+    </form>
+
+    <!-- KİŞİSEL FOTOĞRAFLARINIZ -->
+    <div class="personal-photos">
+        <img src="usta-calisma-ani.jpg" alt="Mustafa Usta" class="personal-img">
+        <img src="usta-calisma-ani-2.jpg" alt="Mustafa Usta Çalışma" class="personal-img">
+    </div>
+</section>
 
 <footer>
-    <img src="logo.png" alt="Çiftçi Auto Logo" class="footer-logo">
-    <p>© 2026 Çiftçi Auto Göçük - Tüm Hakları Saklıdır.</p>
-    <a href="mailto:info@ciftciautogocuk.com" class="footer-mail">
-        info@ciftciautogocuk.com
-    </a>
+    <p>© 2026 Çiftçi Oto Göçük | Tüm Hakları Saklıdır.</p>
 </footer>
 
 </body>
